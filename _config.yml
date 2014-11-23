@@ -11,7 +11,7 @@ title:            Open Bidouille Camp
 tagline:          'Atelier '
 description:      'Atelier soudure and co'
 url:              http://scampion.github.io/obc/
-baseurl:          /
+baseurl:          /obc
 
 author:
   name:           'Sebastien Campion'
