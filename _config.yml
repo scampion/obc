@@ -10,8 +10,8 @@ relative_permalinks: true
 title:            Open Bidouille Camp
 tagline:          'Atelier '
 description:      'Atelier soudure and co'
-url:              http://bidouille.scamp.fr
-baseurl:          /
+url:              http://scampion.github.io/
+baseurl:          /obc/
 
 author:
   name:           'Sebastien Campion'
