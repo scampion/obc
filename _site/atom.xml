@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Open Bidouille Camp</title>
- <link href="http://scampion.github.io/obc//atom.xml" rel="self"/>
- <link href="http://scampion.github.io/obc//"/>
- <updated>2014-11-23T14:26:28+01:00</updated>
- <id>http://scampion.github.io/obc/</id>
+ <link href="http://bidouille.scamp.fr//atom.xml" rel="self"/>
+ <link href="http://bidouille.scamp.fr//"/>
+ <updated>2014-11-23T21:47:46+01:00</updated>
+ <id>http://bidouille.scamp.fr/</id>
  <author>
    <name>Sebastien Campion</name>
    <email></email>
@@ -14,12 +14,30 @@
  
  <entry>
    <title>Let's Go</title>
-   <link href="http://scampion.github.io/obc//2014/11/21/lets-go/"/>
+   <link href="http://bidouille.scamp.fr//2014/11/21/lets-go/"/>
    <updated>2014-11-21T00:00:00+01:00</updated>
-   <id>http://scampion.github.io/obc//2014/11/21/lets-go</id>
-   <content type="html">&lt;p&gt;Premier post, pour des activités bidouilles germinoises.&lt;/p&gt;
+   <id>http://bidouille.scamp.fr//2014/11/21/lets-go</id>
+   <content type="html">&lt;p&gt;Premier post, pour des activités bidouilles.&lt;/p&gt;
 
-&lt;p&gt;La page &lt;a href=&quot;bidouilles&quot;&gt;&amp;quot;Bidouilles&amp;quot;&lt;/a&gt; recense les projets en cours.&lt;/p&gt;
+&lt;h3&gt;Projet du &amp;quot;Réveil Lapin &amp;quot;&lt;/h3&gt;
+
+&lt;p&gt;Les entetes ont été soudées sur le module RTC (l&amp;#39;horloge qui fonctionne avec une pile bouton) :&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/IMG_0410.jpg&quot; alt=&quot;RTC&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Seconde étape, remettre en route l&amp;#39;exemple &amp;quot;Blink&amp;quot; d&amp;#39;Arduino consistant a faire clignoter une led : &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/IMG_0403.jpg&quot; alt=&quot;Blink&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Troisième étape faire fonctionner ensemble, ici lorsque la valeur des minutes dépasse 22, la diode s&amp;#39;allume : &lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/IMG_0407.jpg&quot; alt=&quot;407&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/public/images/IMG_0409.jpg&quot; alt=&quot;409&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;Ca marche !!!&lt;/p&gt;
+
+&lt;p&gt;Reste a faire, intégrer l&amp;#39;ensemble dans une jolie boite. &lt;/p&gt;
 </content>
  </entry>
  

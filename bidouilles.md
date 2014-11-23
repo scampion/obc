@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Bidouilles
+title: Bidouilles en projet
 ---
 
 
@@ -10,7 +10,7 @@ title: Bidouilles
 
 ## Réveil Lapin
 
-L'idée est de cloné  une ["Veilleuse indicatrice de réveil"](http://www.oxybul.com/veilleuse-indicatrice-de-reveil-musicale-kid-sleep-bleue/produit/201267)
+L'idée est de cloner une ["Veilleuse indicatrice de réveil"](http://www.oxybul.com/veilleuse-indicatrice-de-reveil-musicale-kid-sleep-bleue/produit/201267)
 
 ![Veilleuse](http://images.eveiletjeux.net/Photo/IMG_FICHE_PRODUIT/Image/500x500/2/201267.jpg)
 
