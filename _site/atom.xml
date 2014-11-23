@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Open Bidouille Camp</title>
+ <link href="http://bidouille.scamp.fr/atom.xml" rel="self"/>
+ <link href="http://bidouille.scamp.fr/"/>
+ <updated>2014-11-23T13:29:49+01:00</updated>
+ <id>http://bidouille.scamp.fr</id>
+ <author>
+   <name>Sebastien Campion</name>
+   <email></email>
+ </author>
+
+ 
+ <entry>
+   <title>Let's Go</title>
+   <link href="http://bidouille.scamp.fr/2014/11/21/lets-go/"/>
+   <updated>2014-11-21T00:00:00+01:00</updated>
+   <id>http://bidouille.scamp.fr/2014/11/21/lets-go</id>
+   <content type="html">&lt;p&gt;Premier post, pour des activités bidouilles germinoises.&lt;/p&gt;
+
+&lt;p&gt;La page &lt;a href=&quot;/bidouilles&quot;&gt;&amp;quot;Bidouilles&amp;quot;&lt;/a&gt; recense les projets en cours.&lt;/p&gt;
+</content>
+ </entry>
+ 
+
+</feed>

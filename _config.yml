@@ -1,0 +1,26 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: true
+
+# Setup
+title:            Open Bidouille Camp
+tagline:          'Atelier '
+description:      'Atelier soudure and co'
+url:              http://bidouille.scamp.fr
+baseurl:          /
+
+author:
+  name:           'Sebastien Campion'
+  url:            https://twitter.com/sebcampion
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/scampion/obc
