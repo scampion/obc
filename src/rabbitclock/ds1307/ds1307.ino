@@ -6,6 +6,12 @@
 
 RTC_DS1307 RTC;
 
+int hour_day = 7; 
+int minu_day = 0;
+int hour_night = 19; 
+int minu_night = 30;
+
+
 void setup () {
     pinMode(13, OUTPUT);
     pinMode(12, OUTPUT);
@@ -34,17 +40,18 @@ void loop () {
     Serial.print(now.second(), DEC);
     Serial.println();
     
-    if ( now.hour() >= 7 && now.minute() >= 0 ){
-    //if ( now.second() >= 30  ){
-      Serial.println("OK");
+    if ( now.hour() <= hour_day && now.minute() < minu_day ) {
+      digitalWrite(12, HIGH);   
+      digitalWrite(13, LOW);  
+      Serial.print("debug1");     
+    } else if ( now.hour() >= hour_day && now.minute() >= minu_day && now.hour() < hour_night && now.minute() < minu_night ) {
       digitalWrite(13, HIGH);   
       digitalWrite(12, LOW);   
-    } else if ( now.hour() >= 19 && now.minute() >= 30 )  {
+      Serial.print("debug2");     
+    } else if ( now.hour() >= hour_night && now.minute() >= minu_night ) {
       digitalWrite(12, HIGH);   
-      digitalWrite(13, LOW);   
-    } else {
-      digitalWrite(12, HIGH);   
-      digitalWrite(13, LOW);   
+      digitalWrite(13, LOW);     
+      Serial.print("debug3");     
     }
     
     
