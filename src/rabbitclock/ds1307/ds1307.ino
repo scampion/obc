@@ -8,12 +8,13 @@ RTC_DS1307 RTC;
 
 void setup () {
     pinMode(13, OUTPUT);
+    pinMode(12, OUTPUT);
     Serial.begin(57600);
     Wire.begin();
+    //RTC.adjust(DateTime(__DATE__, __TIME__));
     RTC.begin();
     
     // following line sets the RTC to the date & time this sketch was compiled
-    RTC.adjust(DateTime(__DATE__, __TIME__));
     digitalWrite(13, LOW);  
 }
 
@@ -33,14 +34,19 @@ void loop () {
     Serial.print(now.second(), DEC);
     Serial.println();
     
-    if ( now.minute() > 22  ){
+    if ( now.hour() >= 7 && now.minute() >= 0 ){
+    //if ( now.second() >= 30  ){
       Serial.println("OK");
       digitalWrite(13, HIGH);   
+      digitalWrite(12, LOW);   
+    } else if ( now.hour() >= 19 && now.minute() >= 30 )  {
+      digitalWrite(12, HIGH);   
+      digitalWrite(13, LOW);   
     } else {
+      digitalWrite(12, HIGH);   
       digitalWrite(13, LOW);   
     }
     
-    //digitalWrite(13, HIGH);
     
     Serial.print(" since 2000 = ");
     Serial.print(now.get());
