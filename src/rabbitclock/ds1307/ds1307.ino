@@ -6,27 +6,65 @@
 
 RTC_DS1307 RTC;
 
-int hour_day = 7; 
-int minu_day = 0;
-int hour_night = 19; 
-int minu_night = 30;
-
+int ledDay = 12;
+int ledNight = 13;
+boolean night = true;
+int minutes;
+boolean debug = false;
 
 void setup () {
-    pinMode(13, OUTPUT);
-    pinMode(12, OUTPUT);
+    pinMode(ledDay, OUTPUT);
+    pinMode(ledNight, OUTPUT);
+    digitalWrite(ledNight, LOW); 
+    digitalWrite(ledDay, LOW); 
     Serial.begin(57600);
-    Wire.begin();
-    //RTC.adjust(DateTime(__DATE__, __TIME__));
-    RTC.begin();
+    Wire.begin(); 
+    if (! RTC.isrunning()) {
+      Serial.println("RTC stopped !");
+      RTC.adjust(DateTime(__DATE__, __TIME__));
+      // following line sets the RTC to the date & time this sketch was compiled
+      RTC.begin();
+    } else {
+      Serial.println("RTC is running !");
+    }
     
-    // following line sets the RTC to the date & time this sketch was compiled
-    digitalWrite(13, LOW);  
 }
 
 void loop () {
+   //print2SerialDate();
+   DateTime now = RTC.now();
+   if ( debug) {
+     minutes += 20 ; 
+     if (minutes > 24 * 60) 
+       minutes = 0 ; 
+   } else {
+     minutes = now.hour() * 60 +  now.minute();
+   }
+
+   print2SerialMinutes(minutes);
+   night = true;
+   if ( minutes >=  7 * 60 + 10 ) 
+     night = false;
+   if ( minutes >= 13 * 60 + 30 ) 
+     night = true; 
+   if ( minutes >= 16 * 60 ) 
+     night = false ;
+   if ( minutes >= 19 * 60 )
+     night = true;
+   
+   if (night) {
+      digitalWrite(ledNight, HIGH);   
+      digitalWrite(ledDay, LOW);  
+   } else {
+      digitalWrite(ledDay, HIGH);   
+      digitalWrite(ledNight, LOW);  
+   }
+   delay(1000);
+   test();
+}
+
+void print2SerialDate(){
     DateTime now = RTC.now();
-    
     Serial.print(now.year(), DEC);
     Serial.print('/');
     Serial.print(now.month(), DEC);
@@ -38,29 +76,29 @@ void loop () {
     Serial.print(now.minute(), DEC);
     Serial.print(':');
     Serial.print(now.second(), DEC);
+    Serial.print(' ');
+    Serial.print((now.hour() * 60 + now.minute()), DEC);
     Serial.println();
-    
-    if ( now.hour() <= hour_day && now.minute() < minu_day ) {
-      digitalWrite(12, HIGH);   
-      digitalWrite(13, LOW);  
-      Serial.print("debug1");     
-    } else if ( now.hour() >= hour_day && now.minute() >= minu_day && now.hour() < hour_night && now.minute() < minu_night ) {
-      digitalWrite(13, HIGH);   
-      digitalWrite(12, LOW);   
-      Serial.print("debug2");     
-    } else if ( now.hour() >= hour_night && now.minute() >= minu_night ) {
-      digitalWrite(12, HIGH);   
-      digitalWrite(13, LOW);     
-      Serial.print("debug3");     
-    }
-    
-    
-    Serial.print(" since 2000 = ");
-    Serial.print(now.get());
-    Serial.print("s = ");
-    Serial.print(now.get() / 86400L);
-    Serial.println("d");
-    
-    Serial.println();
-    delay(3000);
+}
+
+void print2SerialMinutes(int minutes){
+  Serial.print(minutes / 60, DEC);
+  Serial.print(":");
+  Serial.print(minutes % 60, DEC);
+  Serial.println();
+}
+
+void test(){
+  DateTime now = RTC.now();
+  if ( now.year() == 2000 || now.year() == 2165){
+      print2SerialDate();
+      for ( int i = 0 ; i < 5 ; i++){
+        digitalWrite(ledDay, HIGH);   
+        digitalWrite(ledNight, LOW);
+        delay(100);  
+        digitalWrite(ledDay, LOW);   
+        digitalWrite(ledNight, HIGH);
+        delay(100);  
+     }
+  }
 }
